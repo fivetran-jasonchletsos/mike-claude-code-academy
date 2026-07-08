@@ -401,6 +401,24 @@ section { padding: 8vh 6vw; max-width: 1180px; margin: 0 auto; }
   font-size: 0.88rem;
 }
 
+/* ---------- Platform tabs (iOS / Windows toggle) ---------- */
+.platform-tab-buttons { display: flex; gap: 8px; margin: 6px 0 16px; flex-wrap: wrap; }
+.platform-tab {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,76,84,0.35);
+  background: transparent;
+  color: var(--ink-card-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.platform-tab.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+.platform-tab:hover:not(.active) { border-color: var(--brand); color: var(--brand); }
+.platform-panel { display: none; }
+.platform-panel.active { display: block; }
+
 /* ---------- Bonus lessons (gold trophy tint) ---------- */
 .lesson.bonus { border-color: var(--gold); }
 .lesson.bonus .lesson-head { border-bottom-color: rgba(212,175,55,0.5); }
@@ -408,10 +426,23 @@ section { padding: 8vh 6vw; max-width: 1180px; margin: 0 auto; }
 /* ---------- Play / Card Vault ---------- */
 .finder-controls {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+.finder-controls-main {
+  display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 26px;
+  align-items: center;
+  flex: 1 1 auto;
+}
+.finder-lang-toggle {
+  display: flex;
+  gap: 6px;
+  flex: none;
 }
 .finder-search {
   flex: 1 1 260px;

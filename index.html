@@ -28,7 +28,7 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="hero-eyebrow">Five one-hour lessons &middot; three bonus drives &middot; zero experience required</div>
+  <div class="hero-eyebrow">Five one-hour lessons &middot; two bonus drives &middot; zero experience required</div>
   <h1>Fly, Code, Fly</h1>
   <p class="sub">
     You used to hand-code your MySpace page — glitter text, a busted marquee tag, the whole Top 8.
@@ -46,7 +46,7 @@
 <section id="roadmap">
   <div class="section-head reveal">
     <div class="section-tag">The Path</div>
-    <h2 class="section-title">Five hours, three bonus drives</h2>
+    <h2 class="section-title">Five hours, two bonus drives</h2>
     <p class="section-desc">Each hour builds on the last. Do them in order, in one sitting or spread across a week — there's no clock but your own.</p>
   </div>
   <div class="roadmap reveal">
@@ -55,7 +55,6 @@
     <div class="road-step"><div class="num">HR 3</div><div class="label">Film Study</div></div>
     <div class="road-step"><div class="num">HR 4</div><div class="label">Two-Minute Drill</div></div>
     <div class="road-step"><div class="num">HR 5</div><div class="label">Kickoff</div></div>
-    <div class="road-step bonus"><div class="num">BONUS</div><div class="label">Special Teams (iPhone)</div></div>
     <div class="road-step bonus"><div class="num">BONUS</div><div class="label">Zwei Sprachen (German)</div></div>
     <div class="road-step bonus"><div class="num">BONUS</div><div class="label">The Trade Block (eBay)</div></div>
   </div>
@@ -73,64 +72,101 @@
     <div class="lesson-head" data-toggle>
       <div class="lesson-title-wrap">
         <span class="lesson-hour">HOUR 1</span>
-        <span class="lesson-title">Training Camp: Get Claude Code Running on Windows</span>
+        <span class="lesson-title">Training Camp: Get Claude Talking to You</span>
       </div>
       <div class="lesson-title-wrap">
-        <span class="lesson-energy">Windows</span>
+        <span class="lesson-energy">iPhone or Windows</span>
         <span class="lesson-toggle">+</span>
       </div>
     </div>
     <div class="lesson-body">
       <div class="lesson-block">
         <h4>Goal</h4>
-        <p>Install everything Claude Code needs and get it to answer your very first message. If you could hand-edit MySpace HTML back in the day, this part is going to feel familiar fast.</p>
+        <p>Get Claude answering your first message today, on whichever device is already in your hand. The iPhone tab below is the fastest way in — no installs, just an app. The Windows tab is where the real building starts, and Hours 2 through 5 all continue there, since Claude Code itself needs a terminal to run. If you could hand-edit MySpace HTML back in the day, the Windows side is going to feel familiar fast.</p>
       </div>
-      <div class="lesson-block">
-        <h4>What you'll need</h4>
-        <ul>
-          <li>A Windows 10 or 11 laptop with internet</li>
-          <li>A free account at <strong>claude.ai</strong> (sign up if you don't have one)</li>
-          <li>60 minutes and a little patience for first-time installer screens</li>
-        </ul>
-      </div>
-      <div class="lesson-block">
-        <h4>Steps</h4>
-        <ol>
-          <li>Open <strong>Windows Terminal</strong> (built into Windows 11; on Windows 10, grab it free from the Microsoft Store). This is where you'll type commands.</li>
-          <li>Install <strong>Node.js LTS</strong> from <span class="term" style="display:inline-block;padding:2px 8px;">nodejs.org</span> — download the installer and click through the defaults.</li>
-          <li>Close and reopen Windows Terminal so it picks up the new install.</li>
-          <li>Check it worked:
-            <div class="term"><button class="copy-btn" data-copy>Copy</button>node -v
-npm -v</div>
-            You should see version numbers, not an error.
-          </li>
-          <li>Install Claude Code itself:
-            <div class="term"><button class="copy-btn" data-copy>Copy</button>npm install -g @anthropic-ai/claude-code</div>
-          </li>
-          <li>Make a folder to practice in and move into it:
-            <div class="term"><button class="copy-btn" data-copy>Copy</button>mkdir C:\Users\Mike\claude-practice
-cd C:\Users\Mike\claude-practice</div>
-          </li>
-          <li>Launch it:
-            <div class="term"><button class="copy-btn" data-copy>Copy</button>claude</div>
-            A browser tab opens the first time — log in with your Claude account.
-          </li>
-          <li>Once you see the Claude Code prompt, type this and hit Enter:
-            <div class="term"><button class="copy-btn" data-copy>Copy</button>hi! what folder are we in, and what's inside it?</div>
-          </li>
-        </ol>
-      </div>
-      <div class="lesson-block">
-        <h4>Checkpoint</h4>
-        <div class="checkpoint">
-          <label><input type="checkbox"><span><code>node -v</code> and <code>npm -v</code> both printed version numbers</span></label>
-          <label><input type="checkbox"><span>the <code>claude</code> command opened the app and logged you in</span></label>
-          <label><input type="checkbox"><span>Claude answered your first message</span></label>
+
+      <div class="platform-tabs" data-platform-tabs>
+        <div class="platform-tab-buttons">
+          <button class="platform-tab active" data-tab="ios" type="button">iPhone</button>
+          <button class="platform-tab" data-tab="windows" type="button">Windows</button>
         </div>
-      </div>
-      <div class="lesson-block">
-        <h4>If something breaks</h4>
-        <div class="troubleshoot">"'claude' is not recognized" almost always means the terminal needs a restart to see the new install — close it completely and reopen it. If that doesn't fix it, restart the whole laptop once.</div>
+
+        <div class="platform-panel active" data-panel="ios">
+          <div class="lesson-block">
+            <h4>Steps</h4>
+            <ol>
+              <li>Download the <strong>Claude</strong> app from the App Store.</li>
+              <li>Log in with a free account at <strong>claude.ai</strong>, or create one right in the app.</li>
+              <li>Send your first message: <em>"hi! what can you help me do?"</em></li>
+              <li>Snap a photo of a card you own and ask, <em>"what player and set is this, and roughly what condition does it look like from this photo?"</em> Treat the answer as a starting point, not gospel — always double-check anything you're about to pay real money on.</li>
+              <li>Try the microphone icon and dictate a note instead of typing — handy while you're sorting a box of cards on the couch.</li>
+              <li>Ask it to draft something on the spot: <em>"write a short eBay-style description for this 2018 Jason Kelce card, near-mint condition."</em> You'll polish it later on the laptop.</li>
+              <li>Keep a running list in the app of cards to look up later — you'll bring that list over to the tracker you build in the Trade Block bonus.</li>
+            </ol>
+          </div>
+          <div class="lesson-block">
+            <h4>Checkpoint</h4>
+            <div class="checkpoint">
+              <label><input type="checkbox"><span>Claude app installed and logged in</span></label>
+              <label><input type="checkbox"><span>asked it to identify or describe at least one real card from a photo</span></label>
+              <label><input type="checkbox"><span>tried dictating a note with the microphone</span></label>
+            </div>
+          </div>
+          <div class="lesson-block">
+            <h4>If something breaks</h4>
+            <div class="troubleshoot">The iPhone app is for chatting, photos, and voice — it can't run terminal commands or build project files the way Claude Code does on Windows. That's exactly what the Windows tab above, and Hours 2 through 5, are for.</div>
+          </div>
+        </div>
+
+        <div class="platform-panel" data-panel="windows">
+          <div class="lesson-block">
+            <h4>What you'll need</h4>
+            <ul>
+              <li>A Windows 10 or 11 laptop with internet</li>
+              <li>A free account at <strong>claude.ai</strong> (sign up if you don't have one)</li>
+              <li>60 minutes and a little patience for first-time installer screens</li>
+            </ul>
+          </div>
+          <div class="lesson-block">
+            <h4>Steps</h4>
+            <ol>
+              <li>Open <strong>Windows Terminal</strong> (built into Windows 11; on Windows 10, grab it free from the Microsoft Store). This is where you'll type commands.</li>
+              <li>Install <strong>Node.js LTS</strong> from <span class="term" style="display:inline-block;padding:2px 8px;">nodejs.org</span> — download the installer and click through the defaults.</li>
+              <li>Close and reopen Windows Terminal so it picks up the new install.</li>
+              <li>Check it worked:
+                <div class="term"><button class="copy-btn" data-copy>Copy</button>node -v
+npm -v</div>
+                You should see version numbers, not an error.
+              </li>
+              <li>Install Claude Code itself:
+                <div class="term"><button class="copy-btn" data-copy>Copy</button>npm install -g @anthropic-ai/claude-code</div>
+              </li>
+              <li>Make a folder to practice in and move into it:
+                <div class="term"><button class="copy-btn" data-copy>Copy</button>mkdir C:\Users\Mike\claude-practice
+cd C:\Users\Mike\claude-practice</div>
+              </li>
+              <li>Launch it:
+                <div class="term"><button class="copy-btn" data-copy>Copy</button>claude</div>
+                A browser tab opens the first time — log in with your Claude account.
+              </li>
+              <li>Once you see the Claude Code prompt, type this and hit Enter:
+                <div class="term"><button class="copy-btn" data-copy>Copy</button>hi! what folder are we in, and what's inside it?</div>
+              </li>
+            </ol>
+          </div>
+          <div class="lesson-block">
+            <h4>Checkpoint</h4>
+            <div class="checkpoint">
+              <label><input type="checkbox"><span><code>node -v</code> and <code>npm -v</code> both printed version numbers</span></label>
+              <label><input type="checkbox"><span>the <code>claude</code> command opened the app and logged you in</span></label>
+              <label><input type="checkbox"><span>Claude answered your first message</span></label>
+            </div>
+          </div>
+          <div class="lesson-block">
+            <h4>If something breaks</h4>
+            <div class="troubleshoot">"'claude' is not recognized" almost always means the terminal needs a restart to see the new install — close it completely and reopen it. If that doesn't fix it, restart the whole laptop once.</div>
+          </div>
+        </div>
       </div>
     </div>
   </article>
@@ -325,50 +361,8 @@ search word and print any matching players plus their blurb. Add a
     </div>
   </article>
 
-  <!-- BONUS 1: iPHONE -->
+  <!-- BONUS 1: GERMAN -->
   <article class="lesson bonus reveal" id="bonus" data-lesson>
-    <div class="lesson-head" data-toggle>
-      <div class="lesson-title-wrap">
-        <span class="lesson-hour bonus-tag">BONUS</span>
-        <span class="lesson-title">Special Teams: Claude in Your Pocket (iPhone)</span>
-      </div>
-      <div class="lesson-title-wrap">
-        <span class="lesson-energy">iOS</span>
-        <span class="lesson-toggle">+</span>
-      </div>
-    </div>
-    <div class="lesson-body">
-      <div class="lesson-block">
-        <h4>Goal</h4>
-        <p>Everything in Hours 1-5 runs on your Windows laptop, because Claude Code is a terminal tool and iPhones don't have a terminal. But the <strong>Claude app</strong> on your iPhone is a genuinely useful sidekick for the card-collecting side of this — research, photos, and drafting text, wherever you are.</p>
-      </div>
-      <div class="lesson-block">
-        <h4>Steps</h4>
-        <ol>
-          <li>Download the <strong>Claude</strong> app from the App Store and log in with the same account you use on the laptop.</li>
-          <li>At a card show or a garage-sale box: snap a photo of a card and ask, <em>"what player and set is this, and roughly what condition does it look like from this photo?"</em> Treat the answer as a starting point, not gospel — always double-check anything you're about to pay real money on.</li>
-          <li>Use voice input (the microphone icon) to dictate notes instead of typing on a tiny keyboard — handy while you're sorting a box of cards on the couch.</li>
-          <li>Ask it to draft things on the spot: <em>"write a short eBay-style description for this 2018 Jason Kelce card, near-mint condition."</em> You'll polish it later on the laptop.</li>
-          <li>Keep a running list in the app of cards to look up later — then bring that list to your Windows machine and feed it into the tracker you'll build in the Trade Block bonus below.</li>
-        </ol>
-      </div>
-      <div class="lesson-block">
-        <h4>Checkpoint</h4>
-        <div class="checkpoint">
-          <label><input type="checkbox"><span>Claude app installed and logged in on the iPhone</span></label>
-          <label><input type="checkbox"><span>asked it to identify or describe at least one real card from a photo</span></label>
-          <label><input type="checkbox"><span>tried dictating a note or description with the microphone</span></label>
-        </div>
-      </div>
-      <div class="lesson-block">
-        <h4>If something breaks</h4>
-        <div class="troubleshoot">The iPhone app is for chatting, photos, and voice — it can't run terminal commands or build your project files like Claude Code does on Windows. Think of it as scouting and notes on the road; the laptop is where the actual building happens.</div>
-      </div>
-    </div>
-  </article>
-
-  <!-- BONUS 2: GERMAN -->
-  <article class="lesson bonus reveal" data-lesson>
     <div class="lesson-head" data-toggle>
       <div class="lesson-title-wrap">
         <span class="lesson-hour bonus-tag">BONUS</span>
@@ -408,7 +402,7 @@ search word and print any matching players plus their blurb. Add a
     </div>
   </article>
 
-  <!-- BONUS 3: EBAY -->
+  <!-- BONUS 2: EBAY -->
   <article class="lesson bonus reveal" data-lesson>
     <div class="lesson-head" data-toggle>
       <div class="lesson-title-wrap">
@@ -434,6 +428,7 @@ search word and print any matching players plus their blurb. Add a
       <div class="lesson-block">
         <h4>Steps</h4>
         <ol>
+          <li>If you kept a running list of cards in the Claude iPhone app back in Hour 1, pull it up now — that's your starting checklist.</li>
           <li>Ask Claude Code to help you build a simple tracker (a spreadsheet-style CSV file works great) with columns: player, year/set, card number, condition notes, estimated value, graded?, photographed?, listed?</li>
           <li>Photograph each card front and back in good, even light — no glare, no shadows, a plain background. A close-up of any corner or edge damage matters more than a wide shot.</li>
           <li>Research real comps &mdash; on eBay, filter for <strong>sold/completed listings</strong> of the exact same player, year, set, and card number. Asking prices lie; sold prices don't.</li>
@@ -465,13 +460,17 @@ search word and print any matching players plus their blurb. Add a
     <p class="section-desc">This is the finished shape of the Hour 4 project &mdash; a live deck of Eagles legends and modern-era stars. Search it, filter it, or hit shuffle. Tiers are just fun collector flavor, not real appraisals.</p>
   </div>
   <div class="finder-controls reveal">
-    <input type="text" class="finder-search" id="finderSearch" placeholder="Search a name, e.g. 'Kelce' or 'Hurts'..." />
-    <button class="chip active" data-filter="all">All</button>
-    <button class="chip" data-filter="legends">Legends</button>
-    <button class="chip" data-filter="modern">Modern Era</button>
-    <button class="btn btn-ghost" id="shuffleBtn" style="padding:8px 16px; font-size:0.85rem;">🏈 Surprise Me</button>
-    <button class="chip active" data-lang="en">EN</button>
-    <button class="chip" data-lang="de">DE</button>
+    <div class="finder-controls-main">
+      <input type="text" class="finder-search" id="finderSearch" placeholder="Search a name, e.g. 'Kelce' or 'Hurts'..." />
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="legends">Legends</button>
+      <button class="chip" data-filter="modern">Modern Era</button>
+      <button class="btn btn-ghost" id="shuffleBtn" style="padding:8px 16px; font-size:0.85rem;">🏈 Surprise Me</button>
+    </div>
+    <div class="finder-lang-toggle">
+      <button class="chip active" data-lang="en">EN</button>
+      <button class="chip" data-lang="de">DE</button>
+    </div>
   </div>
   <div class="finder-grid reveal" id="finderGrid"></div>
   <p class="finder-empty" id="finderEmpty" style="display:none;">No matches. Try a different search, or hit Surprise Me.</p>
@@ -485,7 +484,11 @@ search word and print any matching players plus their blurb. Add a
   </div>
   <div class="cheat-grid reveal">
     <div class="cheat-card">
-      <h4>Setup commands</h4>
+      <h4>Claude on iPhone</h4>
+      <p>Great for photographing cards, dictating notes by voice, and drafting quick descriptions on the go. It can't run your project or terminal commands &mdash; that part stays on the Windows laptop.</p>
+    </div>
+    <div class="cheat-card">
+      <h4>Setup commands (Windows)</h4>
       <div class="term">node -v</div>
       <div class="term">npm -v</div>
       <div class="term">npm install -g @anthropic-ai/claude-code</div>
@@ -511,10 +514,6 @@ search word and print any matching players plus their blurb. Add a
       <div class="term">git add .</div>
       <div class="term">git commit -m "message"</div>
       <div class="term">gh repo create</div>
-    </div>
-    <div class="cheat-card">
-      <h4>Claude on iPhone</h4>
-      <p>Great for photographing cards, dictating notes by voice, and drafting quick descriptions on the go. It can't run your project or terminal commands &mdash; that part stays on the Windows laptop.</p>
     </div>
     <div class="cheat-card">
       <h4>"'claude' is not recognized"</h4>

@@ -22,6 +22,19 @@ document.querySelectorAll('.term').forEach(block => {
   });
 });
 
+// ---------- Platform tabs (iOS / Windows toggle) ----------
+document.querySelectorAll('[data-platform-tabs]').forEach(group => {
+  const buttons = group.querySelectorAll('.platform-tab');
+  const panels = group.querySelectorAll('.platform-panel');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      panels.forEach(p => p.classList.toggle('active', p.dataset.panel === btn.dataset.tab));
+    });
+  });
+});
+
 // ---------- Scroll reveal ----------
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
