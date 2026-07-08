@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fly, Code, Fly — Claude Code Academy, built for Mike</title>
+<meta name="description" content="A beginner-friendly, hour-by-hour crash course teaching Mike how to use Claude Code on Windows and the Claude app on iPhone, build an Eagles Card Vault Finder, and list trading cards on eBay." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23004C54%22/><ellipse cx=%2250%22 cy=%2250%22 rx=%2232%22 ry=%2220%22 fill=%22%237a4a24%22 stroke=%22%231a1a1a%22 stroke-width=%223%22/><line x1=%2230%22 y1=%2250%22 x2=%2270%22 y2=%2250%22 stroke=%22%23fff%22 stroke-width=%223%22/><line x1=%2240%22 y1=%2244%22 x2=%2240%22 y2=%2256%22 stroke=%22%23fff%22 stroke-width=%222%22/><line x1=%2250%22 y1=%2244%22 x2=%2250%22 y2=%2256%22 stroke=%22%23fff%22 stroke-width=%222%22/><line x1=%2260%22 y1=%2244%22 x2=%2260%22 y2=%2256%22 stroke=%22%23fff%22 stroke-width=%222%22/></svg>" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="bg-scene"></div>
+<div class="holo-sweep"></div>
+
+<nav class="nav">
+  <a class="nav-brand" href="#top">
+    <span class="football" aria-hidden="true"></span>
+    Claude Code Academy
+  </a>
+  <div class="nav-links">
+    <a href="#roadmap">Roadmap</a>
+    <a href="#lessons">Lessons</a>
+    <a href="#bonus">Bonus</a>
+    <a href="#play">Play</a>
+    <a href="#cheatsheet">Cheat Sheet</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-eyebrow">Five one-hour lessons &middot; three bonus drives &middot; zero experience required</div>
+  <h1>Fly, Code, Fly</h1>
+  <p class="sub">
+    You used to hand-code your MySpace page — glitter text, a busted marquee tag, the whole Top 8.
+    That instinct still counts. This is a hands-on, hour-by-hour crash course built for one
+    student — Eagles die-hard, card collector, Windows laptop and an iPhone always within reach —
+    to learn Claude Code from scratch, build a real tool, and get your card collection selling on eBay.
+  </p>
+  <p class="hero-credit">Built by Jason &amp; Claude, for Mike (auf Deutsch: willkommen, for the German side of the house too)</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="#lessons">Start Hour 1</a>
+    <a class="btn btn-ghost" href="#play">Play the Card Vault</a>
+  </div>
+</header>
+
+<section id="roadmap">
+  <div class="section-head reveal">
+    <div class="section-tag">The Path</div>
+    <h2 class="section-title">Five hours, three bonus drives</h2>
+    <p class="section-desc">Each hour builds on the last. Do them in order, in one sitting or spread across a week — there's no clock but your own.</p>
+  </div>
+  <div class="roadmap reveal">
+    <div class="road-step"><div class="num">HR 1</div><div class="label">Training Camp</div></div>
+    <div class="road-step"><div class="num">HR 2</div><div class="label">Playbook</div></div>
+    <div class="road-step"><div class="num">HR 3</div><div class="label">Film Study</div></div>
+    <div class="road-step"><div class="num">HR 4</div><div class="label">Two-Minute Drill</div></div>
+    <div class="road-step"><div class="num">HR 5</div><div class="label">Kickoff</div></div>
+    <div class="road-step bonus"><div class="num">BONUS</div><div class="label">Special Teams (iPhone)</div></div>
+    <div class="road-step bonus"><div class="num">BONUS</div><div class="label">Zwei Sprachen (German)</div></div>
+    <div class="road-step bonus"><div class="num">BONUS</div><div class="label">The Trade Block (eBay)</div></div>
+  </div>
+</section>
+
+<section id="lessons">
+  <div class="section-head reveal">
+    <div class="section-tag">The Lessons</div>
+    <h2 class="section-title">Tap a card to open it</h2>
+    <p class="section-desc">Every lesson is a full hour: a goal, exact steps, real commands to type, a checkpoint, and what to do if it breaks.</p>
+  </div>
+
+  <!-- LESSON 1 -->
+  <article class="lesson reveal" data-lesson>
+    <div class="lesson-head" data-toggle>
+      <div class="lesson-title-wrap">
+        <span class="lesson-hour">HOUR 1</span>
+        <span class="lesson-title">Training Camp: Get Claude Code Running on Windows</span>
+      </div>
+      <div class="lesson-title-wrap">
+        <span class="lesson-energy">Windows</span>
+        <span class="lesson-toggle">+</span>
+      </div>
+    </div>
+    <div class="lesson-body">
+      <div class="lesson-block">
+        <h4>Goal</h4>
+        <p>Install everything Claude Code needs and get it to answer your very first message. If you could hand-edit MySpace HTML back in the day, this part is going to feel familiar fast.</p>
+      </div>
+      <div class="lesson-block">
+        <h4>What you'll need</h4>
+        <ul>
+          <li>A Windows 10 or 11 laptop with internet</li>
+          <li>A free account at <strong>claude.ai</strong> (sign up if you don't have one)</li>
+          <li>60 minutes and a little patience for first-time installer screens</li>
+        </ul>
+      </div>
+      <div class="lesson-block">
+        <h4>Steps</h4>
+        <ol>
+          <li>Open <strong>Windows Terminal</strong> (built into Windows 11; on Windows 10, grab it free from the Microsoft Store). This is where you'll type commands.</li>
+          <li>Install <strong>Node.js LTS</strong> from <span class="term" style="display:inline-block;padding:2px 8px;">nodejs.org</span> — download the installer and click through the defaults.</li>
+          <li>Close and reopen Windows Terminal so it picks up the new install.</li>
+          <li>Check it worked:
+            <div class="term"><button class="copy-btn" data-copy>Copy</button>node -v
+npm -v</div>
+            You should see version numbers, not an error.
+          </li>
+          <li>Install Claude Code itself:
+            <div class="term"><button class="copy-btn" data-copy>Copy</button>npm install -g @anthropic-ai/claude-code</div>
+          </li>
+          <li>Make a folder to practice in and move into it:
+            <div class="term"><button class="copy-btn" data-copy>Copy</button>mkdir C:\Users\Mike\claude-practice
+cd C:\Users\Mike\claude-practice</div>
+          </li>
+          <li>Launch it:
+            <div class="term"><button class="copy-btn" data-copy>Copy</button>claude</div>
+            A browser tab opens the first time — log in with your Claude account.
+          </li>
+          <li>Once you see the Claude Code prompt, type this and hit Enter:
+            <div class="term"><button class="copy-btn" data-copy>Copy</button>hi! what folder are we in, and what's inside it?</div>
+          </li>
+        </ol>
+      </div>
+      <div class="lesson-block">
+        <h4>Checkpoint</h4>
+        <div class="checkpoint">
+          <label><input type="checkbox"><span><code>node -v</code> and <code>npm -v</code> both printed version numbers</span></label>
+          <label><input type="checkbox"><span>the <code>claude</code> command opened the app and logged you in</span></label>
+          <label><input type="checkbox"><span>Claude answered your first message</span></label>
+        </div>
+      </div>
+      <div class="lesson-block">
+        <h4>If something breaks</h4>
+        <div class="troubleshoot">"'claude' is not recognized" almost always means the terminal needs a restart to see the new install — close it completely and reopen it. If that doesn't fix it, restart the whole laptop once.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- LESSON 2 -->
+  <article class="lesson reveal" data-lesson>
+    <div class="lesson-head" data-toggle>
+      <div class="lesson-title-wrap">
+        <span class="lesson-hour">HOUR 2</span>
+        <span class="lesson-title">Playbook: Folders, Files &amp; the Permission Read-Option</span>
+      </div>
+      <div class="lesson-title-wrap">
+        <span class="lesson-energy">Windows</span>
+        <span class="lesson-toggle">+</span>
+      </div>
+    </div>
+    <div class="lesson-body">
+      <div class="lesson-block">
+        <h4>Goal</h4>
+        <p>Get comfortable moving around folders in a terminal, and understand exactly what those "yes / no" prompts from Claude Code mean before you click through them.</p>
+      </div>
+      <div class="lesson-block">
+        <h4>Steps</h4>
+        <ol>
+          <li>Practice moving around (in your <code>claude-practice</code> folder from Hour 1):
+            <div class="term"><button class="copy-btn" data-copy>Copy</button>dir            (list what's in this folder)
+cd ..          (go up one level)
+mkdir card-vault
+cd card-vault</div>
+          </li>
+          <li>Start Claude Code again here: <span class="term" style="display:inline-block;padding:2px 8px;">claude</span></li>
+          <li>Ask it to make a file: <em>"make a file called notes.txt that says hello world"</em> — watch it show you the change and ask permission <strong>before</strong> it touches anything.</li>
+          <li>Read the prompt every time, at least while you're learning. It tells you exactly what file it's about to create or edit — same idea as reading a permission popup before it just does something.</li>
+          <li>Try the built-in help menu: type <span class="term" style="display:inline-block;padding:2px 8px;">/help</span> to see what commands Claude Code understands on its own.</li>
+          <li>Ask it to explain something back to you: <em>"what does notes.txt say right now?"</em></li>
+        </ol>
+      </div>
+      <div class="lesson-block">
+        <h4>Checkpoint</h4>
+        <div class="checkpoint">
+          <label><input type="checkbox"><span>comfortable using <code>cd</code>, <code>dir</code>, and <code>mkdir</code></span></label>
+          <label><input type="checkbox"><span>can explain in your own words why Claude asks permission first</span></label>
+          <label><input type="checkbox"><span>used <code>/help</code> at least once</span></label>
+        </div>
+      </div>
+      <div class="lesson-block">
+        <h4>If something breaks</h4>
+        <div class="troubleshoot">Prompts moving too fast? You can always scroll up in Windows Terminal, or just ask Claude directly: "what did you just do?"</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- LESSON 3 -->
+  <article class="lesson reveal" data-lesson>
+    <div class="lesson-head" data-toggle>
+      <div class="lesson-title-wrap">
+        <span class="lesson-hour">HOUR 3</span>
+        <span class="lesson-title">Film Study: Prompting, Plans &amp; the Undo Button</span>
+      </div>
+      <div class="lesson-title-wrap">
+        <span class="lesson-energy">Windows</span>
+        <span class="lesson-toggle">+</span>
+      </div>
+    </div>
+    <div class="lesson-body">
+      <div class="lesson-block">
+        <h4>Goal</h4>
+        <p>Learn how to actually talk to Claude Code so it builds what's in your head, plus set up your safety net (git) so nothing is ever truly lost.</p>
+      </div>
+      <div class="lesson-block">
+        <h4>Steps</h4>
+        <ol>
+          <li>Specific beats vague. Instead of "make an app," try: <em>"build a simple script that prints 5 random Eagles players from a list."</em></li>
+          <li>For anything bigger than a one-line fix, ask for a plan first: <em>"make a plan for X before you build it"</em> — review the plan, then say go.</li>
+          <li>Practice it: ask Claude to <strong>plan</strong> (not build yet) the Card Vault Finder project you'll build in Hour 4, just to see what a plan looks like.</li>
+          <li>Install <strong>Git for Windows</strong> from gitforwindows.org if you don't have it yet.</li>
+          <li>In your project folder, save your first checkpoint:
+            <div class="term"><button class="copy-btn" data-copy>Copy</button>git init
+git add .
+git commit -m "first checkpoint"</div>
+          </li>
+          <li>After every chunk of real progress, ask Claude: <em>"commit this with a good message."</em> That commit is your undo button forever.</li>
+          <li>Practice saying <em>"undo that last change"</em> and watch how Claude handles it.</li>
+        </ol>
+      </div>
+      <div class="lesson-block">
+        <h4>Checkpoint</h4>
+        <div class="checkpoint">
+          <label><input type="checkbox"><span>ran <code>git init</code> in a project folder</span></label>
+          <label><input type="checkbox"><span>made at least one commit</span></label>
+          <label><input type="checkbox"><span>know the difference between "just do it" and "plan first" prompts</span></label>
+        </div>
+      </div>
+      <div class="lesson-block">
+        <h4>If something breaks</h4>
+        <div class="troubleshoot">"'git' is not recognized" &rarr; reinstall Git for Windows, then fully close and reopen the terminal.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- LESSON 4 -->
+  <article class="lesson reveal" data-lesson>
+    <div class="lesson-head" data-toggle>
+      <div class="lesson-title-wrap">
+        <span class="lesson-hour">HOUR 4</span>
+        <span class="lesson-title">Two-Minute Drill: Build the Iggles Card Vault Finder</span>
+      </div>
+      <div class="lesson-title-wrap">
+        <span class="lesson-energy">Windows</span>
+        <span class="lesson-toggle">+</span>
+      </div>
+    </div>
+    <div class="lesson-body">
+      <div class="lesson-block">
+        <h4>Goal</h4>
+        <p>Build a real, working tool that searches a list of Eagles legends and modern-era stars — the same idea behind the "Play" section of this very site.</p>
+      </div>
+      <div class="lesson-block">
+        <h4>The project brief — paste this into Claude Code almost word for word</h4>
+        <div class="term"><button class="copy-btn" data-copy>Copy</button>Build me a small command-line tool called Card Vault Finder.
+It should have a list of at least 15 Philadelphia Eagles legends and 15
+modern-era Eagles players, each with their position, years played, and a
+short one-line blurb about why they matter. When I run it, let me type a
+search word and print any matching players plus their blurb. Add a
+"surprise me" option that shows a random one.</div>
+      </div>
+      <div class="lesson-block">
+        <h4>Steps</h4>
+        <ol>
+          <li>Paste the brief above into Claude Code inside your project folder.</li>
+          <li>Review the plan it proposes, then approve.</li>
+          <li>Run it the way Claude tells you to (something like <code>python card_finder.py</code> or <code>node card_finder.js</code>).</li>
+          <li>Test it: search "Kelce", search "Hurts", try the surprise-me option.</li>
+          <li>Now ask for one change yourself &mdash; <em>"add a rarity tier like a real trading card"</em> or <em>"add color to the output."</em> This back-and-forth is the real skill.</li>
+          <li>Commit your working version.</li>
+        </ol>
+      </div>
+      <div class="lesson-block">
+        <h4>Checkpoint</h4>
+        <div class="checkpoint">
+          <label><input type="checkbox"><span>program runs with no errors</span></label>
+          <label><input type="checkbox"><span>searching returns real players with blurbs attached</span></label>
+          <label><input type="checkbox"><span>made a follow-up change and it worked</span></label>
+        </div>
+      </div>
+      <div class="lesson-block">
+        <h4>If something breaks</h4>
+        <div class="troubleshoot">Not sure if Python's installed? Just ask Claude: <em>"do I have Python installed, and if not, walk me through installing it on Windows."</em> It will check for you and guide you through it.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- LESSON 5 -->
+  <article class="lesson reveal" data-lesson>
+    <div class="lesson-head" data-toggle>
+      <div class="lesson-title-wrap">
+        <span class="lesson-hour">HOUR 5</span>
+        <span class="lesson-title">Kickoff: Make It a Web Page &amp; Put It Online</span>
+      </div>
+      <div class="lesson-title-wrap">
+        <span class="lesson-energy">Windows</span>
+        <span class="lesson-toggle">+</span>
+      </div>
+    </div>
+    <div class="lesson-body">
+      <div class="lesson-block">
+        <h4>Goal</h4>
+        <p>Wrap Hour 4's tool in a simple web page, then publish it for free so a friend can use it from a link, no install required.</p>
+      </div>
+      <div class="lesson-block">
+        <h4>Steps</h4>
+        <ol>
+          <li>Ask Claude: <em>"turn this into a simple HTML page with a search box and button, using the same list of players, so I can open it in my browser."</em></li>
+          <li>Open the new <code>index.html</code> by double-clicking it in File Explorer.</li>
+          <li>Make a free account at <strong>github.com</strong> if you don't have one.</li>
+          <li>Ask Claude: <em>"help me create a new GitHub repo for this project and push my code."</em></li>
+          <li>Turn on the free hosting: in the repo on github.com, go to <strong>Settings &gt; Pages</strong> and set it to deploy from the main branch.</li>
+          <li>Send the live link to a friend (or your wife) and watch them use it on their own computer or phone.</li>
+        </ol>
+      </div>
+      <div class="lesson-block">
+        <h4>Checkpoint</h4>
+        <div class="checkpoint">
+          <label><input type="checkbox"><span>project pushed to a GitHub repo</span></label>
+          <label><input type="checkbox"><span>the GitHub Pages link works from another device</span></label>
+        </div>
+      </div>
+      <div class="lesson-block">
+        <h4>If something breaks</h4>
+        <div class="troubleshoot">No <code>gh</code> command? Download the GitHub CLI from cli.github.com, or just create the repo by hand on github.com and drag your files into it in the browser.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- BONUS 1: iPHONE -->
+  <article class="lesson bonus reveal" id="bonus" data-lesson>
+    <div class="lesson-head" data-toggle>
+      <div class="lesson-title-wrap">
+        <span class="lesson-hour bonus-tag">BONUS</span>
+        <span class="lesson-title">Special Teams: Claude in Your Pocket (iPhone)</span>
+      </div>
+      <div class="lesson-title-wrap">
+        <span class="lesson-energy">iOS</span>
+        <span class="lesson-toggle">+</span>
+      </div>
+    </div>
+    <div class="lesson-body">
+      <div class="lesson-block">
+        <h4>Goal</h4>
+        <p>Everything in Hours 1-5 runs on your Windows laptop, because Claude Code is a terminal tool and iPhones don't have a terminal. But the <strong>Claude app</strong> on your iPhone is a genuinely useful sidekick for the card-collecting side of this — research, photos, and drafting text, wherever you are.</p>
+      </div>
+      <div class="lesson-block">
+        <h4>Steps</h4>
+        <ol>
+          <li>Download the <strong>Claude</strong> app from the App Store and log in with the same account you use on the laptop.</li>
+          <li>At a card show or a garage-sale box: snap a photo of a card and ask, <em>"what player and set is this, and roughly what condition does it look like from this photo?"</em> Treat the answer as a starting point, not gospel — always double-check anything you're about to pay real money on.</li>
+          <li>Use voice input (the microphone icon) to dictate notes instead of typing on a tiny keyboard — handy while you're sorting a box of cards on the couch.</li>
+          <li>Ask it to draft things on the spot: <em>"write a short eBay-style description for this 2018 Jason Kelce card, near-mint condition."</em> You'll polish it later on the laptop.</li>
+          <li>Keep a running list in the app of cards to look up later — then bring that list to your Windows machine and feed it into the tracker you'll build in the Trade Block bonus below.</li>
+        </ol>
+      </div>
+      <div class="lesson-block">
+        <h4>Checkpoint</h4>
+        <div class="checkpoint">
+          <label><input type="checkbox"><span>Claude app installed and logged in on the iPhone</span></label>
+          <label><input type="checkbox"><span>asked it to identify or describe at least one real card from a photo</span></label>
+          <label><input type="checkbox"><span>tried dictating a note or description with the microphone</span></label>
+        </div>
+      </div>
+      <div class="lesson-block">
+        <h4>If something breaks</h4>
+        <div class="troubleshoot">The iPhone app is for chatting, photos, and voice — it can't run terminal commands or build your project files like Claude Code does on Windows. Think of it as scouting and notes on the road; the laptop is where the actual building happens.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- BONUS 2: GERMAN -->
+  <article class="lesson bonus reveal" data-lesson>
+    <div class="lesson-head" data-toggle>
+      <div class="lesson-title-wrap">
+        <span class="lesson-hour bonus-tag">BONUS</span>
+        <span class="lesson-title">Zwei Sprachen: Teach Your Tool to Speak German</span>
+      </div>
+      <div class="lesson-title-wrap">
+        <span class="lesson-energy">Windows</span>
+        <span class="lesson-toggle">+</span>
+      </div>
+    </div>
+    <div class="lesson-body">
+      <div class="lesson-block">
+        <h4>Goal</h4>
+        <p>Add an English / German toggle to your own Card Vault Finder, so your wife can actually use it too. This is exactly the feature powering the little "EN / DE" switch on the <a href="#play">Play section</a> below — a genuinely useful real-world skill: real apps ship in more than one language.</p>
+      </div>
+      <div class="lesson-block">
+        <h4>Steps</h4>
+        <ol>
+          <li>Ask Claude directly: <em>"add an EN / DE toggle to my finder — when someone clicks DE, translate the search placeholder, the filter buttons, and the 'no results' message into German, and switch back cleanly when they click EN."</em></li>
+          <li>You don't need to know German yourself to do this — Claude does, and it'll ask you to confirm the exact wording if you want it phrased a certain way.</li>
+          <li>Fun fact you'll notice along the way: German NFL fans mostly don't translate the football vocabulary — "Touchdown," "Quarterback," and "Linebacker" are just the same words in German. So player names, positions, and card blurbs stay in English even in the DE version; only the site's own buttons and messages change.</li>
+          <li>Test both directions: click DE, confirm the search box, filter chips, and empty-state message all switched. Click back to EN and make sure nothing is left half-translated.</li>
+          <li>Stretch goal: ask Claude to remember the last language picked using <code>localStorage</code>, so the page opens in German automatically next time — a nice small touch for someone who isn't you opening the link.</li>
+        </ol>
+      </div>
+      <div class="lesson-block">
+        <h4>Checkpoint</h4>
+        <div class="checkpoint">
+          <label><input type="checkbox"><span>EN / DE toggle switches all the UI text, not just some of it</span></label>
+          <label><input type="checkbox"><span>can explain why player names stay in English either way</span></label>
+        </div>
+      </div>
+      <div class="lesson-block">
+        <h4>If something breaks</h4>
+        <div class="troubleshoot">If only part of the page translates, don't guess — tell Claude exactly which piece got missed, like "the shuffle button text didn't change when I clicked DE," and let it fix just that one spot.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- BONUS 3: EBAY -->
+  <article class="lesson bonus reveal" data-lesson>
+    <div class="lesson-head" data-toggle>
+      <div class="lesson-title-wrap">
+        <span class="lesson-hour bonus-tag">BONUS</span>
+        <span class="lesson-title">The Trade Block: List Your Cards on eBay</span>
+      </div>
+      <div class="lesson-title-wrap">
+        <span class="lesson-energy">Windows + iOS</span>
+        <span class="lesson-toggle">+</span>
+      </div>
+    </div>
+    <div class="lesson-body">
+      <div class="lesson-block">
+        <h4>Goal</h4>
+        <p>Use everything from Hours 1-5 to help catalog and sell your trading card collection on eBay, safely and for real money.</p>
+      </div>
+      <div class="lesson-block">
+        <h4>Read this first &mdash; the one rule that matters most</h4>
+        <div class="troubleshoot" style="border-left-color: var(--gold);">
+          Condition is everything in this hobby. <strong>Corners, edges, centering, and surface</strong> are what buyers and graders actually look at — don't sleeve-flip, bend, or "just wipe off" a card before photographing it. If a card might be worth grading (PSA, BGS, SGC), photograph it as-is and research that before you touch it at all.
+        </div>
+      </div>
+      <div class="lesson-block">
+        <h4>Steps</h4>
+        <ol>
+          <li>Ask Claude Code to help you build a simple tracker (a spreadsheet-style CSV file works great) with columns: player, year/set, card number, condition notes, estimated value, graded?, photographed?, listed?</li>
+          <li>Photograph each card front and back in good, even light — no glare, no shadows, a plain background. A close-up of any corner or edge damage matters more than a wide shot.</li>
+          <li>Research real comps &mdash; on eBay, filter for <strong>sold/completed listings</strong> of the exact same player, year, set, and card number. Asking prices lie; sold prices don't.</li>
+          <li>Ask Claude to draft listing titles and descriptions from your tracker: <em>"write me an eBay title and description for this card &mdash; include player, year, set, card number, condition, and the keywords collectors search for."</em></li>
+          <li>NFL fandom has grown fast in Germany and across Europe, and Eagles cards get real bids from overseas collectors. If you want extra reach, ask Claude to draft a short German translation of your title and description to include alongside the English listing &mdash; the same translation skill from the Zwei Sprachen bonus above, just pointed at eBay instead of your own tool.</li>
+          <li>Commons sell better bundled into small lots (5 or fewer). Save true rarities and graded slabs as solo listings; those are worth real money on their own.</li>
+          <li>List a small test batch first &mdash; 5 to 10 cards &mdash; before doing the whole collection, so you can see what actually sells before pricing the rest.</li>
+        </ol>
+      </div>
+      <div class="lesson-block">
+        <h4>Checkpoint</h4>
+        <div class="checkpoint">
+          <label><input type="checkbox"><span>tracker built, at least 10 cards logged</span></label>
+          <label><input type="checkbox"><span>a small test batch is live on eBay</span></label>
+        </div>
+      </div>
+      <div class="lesson-block">
+        <h4>If something breaks</h4>
+        <div class="troubleshoot">Not sure if a card is worth grading? Ask Claude to help you research the exact player, year, and set, then cross-check it against sold graded listings before you spend money on grading fees. And if you get stuck &mdash; ask Jason. He already runs a card &amp; collectibles eBay store and does this exact workflow (photograph, research comps, bundle the commons into lots, sell the rare ones solo) every week.</div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section id="play">
+  <div class="section-head reveal">
+    <div class="section-tag">Play</div>
+    <h2 class="section-title">The Iggles Card Vault</h2>
+    <p class="section-desc">This is the finished shape of the Hour 4 project &mdash; a live deck of Eagles legends and modern-era stars. Search it, filter it, or hit shuffle. Tiers are just fun collector flavor, not real appraisals.</p>
+  </div>
+  <div class="finder-controls reveal">
+    <input type="text" class="finder-search" id="finderSearch" placeholder="Search a name, e.g. 'Kelce' or 'Hurts'..." />
+    <button class="chip active" data-filter="all">All</button>
+    <button class="chip" data-filter="legends">Legends</button>
+    <button class="chip" data-filter="modern">Modern Era</button>
+    <button class="btn btn-ghost" id="shuffleBtn" style="padding:8px 16px; font-size:0.85rem;">🏈 Surprise Me</button>
+    <button class="chip active" data-lang="en">EN</button>
+    <button class="chip" data-lang="de">DE</button>
+  </div>
+  <div class="finder-grid reveal" id="finderGrid"></div>
+  <p class="finder-empty" id="finderEmpty" style="display:none;">No matches. Try a different search, or hit Surprise Me.</p>
+</section>
+
+<section id="cheatsheet">
+  <div class="section-head reveal">
+    <div class="section-tag">Reference</div>
+    <h2 class="section-title">The Cheat Sheet</h2>
+    <p class="section-desc">Keep this open in a second tab during Hours 1-5.</p>
+  </div>
+  <div class="cheat-grid reveal">
+    <div class="cheat-card">
+      <h4>Setup commands</h4>
+      <div class="term">node -v</div>
+      <div class="term">npm -v</div>
+      <div class="term">npm install -g @anthropic-ai/claude-code</div>
+      <div class="term">claude</div>
+      <div class="term">claude doctor</div>
+    </div>
+    <div class="cheat-card">
+      <h4>Inside Claude Code</h4>
+      <div class="term">/help</div>
+      <div class="term">/clear</div>
+      <p>Speak in plain English. Ask for a plan on anything big. Read the permission prompt before approving.</p>
+    </div>
+    <div class="cheat-card">
+      <h4>Windows Terminal navigation</h4>
+      <div class="term">dir</div>
+      <div class="term">cd foldername</div>
+      <div class="term">cd ..</div>
+      <div class="term">mkdir foldername</div>
+    </div>
+    <div class="cheat-card">
+      <h4>Git (your undo button)</h4>
+      <div class="term">git init</div>
+      <div class="term">git add .</div>
+      <div class="term">git commit -m "message"</div>
+      <div class="term">gh repo create</div>
+    </div>
+    <div class="cheat-card">
+      <h4>Claude on iPhone</h4>
+      <p>Great for photographing cards, dictating notes by voice, and drafting quick descriptions on the go. It can't run your project or terminal commands &mdash; that part stays on the Windows laptop.</p>
+    </div>
+    <div class="cheat-card">
+      <h4>"'claude' is not recognized"</h4>
+      <p>The terminal hasn't reloaded its PATH yet. Fully close Windows Terminal and reopen it. Still stuck? Restart the laptop once.</p>
+    </div>
+    <div class="cheat-card">
+      <h4>npm install fails</h4>
+      <p>Try running Windows Terminal as Administrator (right-click &gt; Run as administrator), then reinstall Node.js LTS from nodejs.org if that doesn't help.</p>
+    </div>
+    <div class="cheat-card">
+      <h4>"It keeps asking me to approve things"</h4>
+      <p>That's working as intended &mdash; Claude Code asks before it changes files or runs commands. Read the prompt, then approve. It's a feature, not a bug.</p>
+    </div>
+    <div class="cheat-card">
+      <h4>Don't know what to type</h4>
+      <p>Describe what you want in plain English, like texting a very capable, very literal friend. Specific beats vague.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Claude Code Academy &middot; a one-time gift, not a subscription &middot; source on <a href="https://github.com/fivetran-jasonchletsos/mike-claude-code-academy" target="_blank" rel="noopener">GitHub</a></p>
+  <p>Built with Claude Code, for someone learning Claude Code. Mit ein bisschen Deutsch, für zuhause.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
