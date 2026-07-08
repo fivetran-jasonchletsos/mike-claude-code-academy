@@ -22,6 +22,98 @@ document.querySelectorAll('.term').forEach(block => {
   });
 });
 
+// ---------- Mike / Natasha persona toggle ----------
+// Natasha's view leans into Ostalgie (East German design nostalgia) --
+// warm mustard/teal/brick colors and the Ampelmännchen pedestrian icon,
+// no state symbols -- and switches the site's own chrome into German.
+// The lesson content itself stays in English, since it's Mike's coding course.
+const PERSONA_TEXT = {
+  'hero-eyebrow': {
+    mike: "Five one-hour lessons &middot; two bonus drives &middot; zero experience required",
+    natasha: "Fünf einstündige Lektionen &middot; zwei Bonusrunden &middot; keine Vorkenntnisse nötig",
+  },
+  'hero-h1': {
+    mike: "Fly, Code, Fly",
+    natasha: "Flieg, Code, Flieg",
+  },
+  'hero-sub': {
+    mike: `You used to hand-code your MySpace page — glitter text, a busted marquee tag, the whole Top 8.
+    That instinct still counts. This is a hands-on, hour-by-hour crash course built for one
+    student — Eagles die-hard, card collector, Windows laptop and an iPhone always within reach —
+    to learn Claude Code from scratch, build a real tool, and get your card collection selling on eBay.`,
+    natasha: `Ein Gruß auf Deutsch, mit einem Augenzwinkern zur Ostalgie — Ampelmännchen, Trabi-Charme
+    und eine Prise DDR-Nostalgie, für Natasha. Nebenan, auf Englisch, lernt Mike gerade das
+    Programmieren mit Claude Code und baut seine Eagles-Kartensammlung zu einem eBay-Geschäft aus.`,
+  },
+  'hero-credit': {
+    mike: "Built by Jason &amp; Claude, for Mike (auf Deutsch: willkommen, for the German side of the house too)",
+    natasha: "Gebaut von Jason &amp; Claude — für Natasha. Willkommen!",
+  },
+  'cta-lessons': {
+    mike: "Start Hour 1",
+    natasha: "Zu Stunde 1",
+  },
+  'cta-play': {
+    mike: "Play the Card Vault",
+    natasha: "Kartenarchiv entdecken",
+  },
+  'nav-roadmap': { mike: "Roadmap", natasha: "Übersicht" },
+  'nav-lessons': { mike: "Lessons", natasha: "Lektionen" },
+  'nav-bonus': { mike: "Bonus", natasha: "Bonus" },
+  'nav-play': { mike: "Play", natasha: "Spielen" },
+  'nav-cheatsheet': { mike: "Cheat Sheet", natasha: "Spickzettel" },
+  'roadmap-tag': { mike: "The Path", natasha: "Der Weg" },
+  'roadmap-title': { mike: "Five hours, two bonus drives", natasha: "Fünf Stunden, zwei Bonusrunden" },
+  'roadmap-desc': {
+    mike: "Each hour builds on the last. Do them in order, in one sitting or spread across a week — there's no clock but your own.",
+    natasha: "Jede Stunde baut auf der letzten auf. Der Reihe nach, an einem Nachmittag oder über eine Woche verteilt — es gibt keine andere Uhr als deine eigene.",
+  },
+  'lessons-tag': { mike: "The Lessons", natasha: "Die Lektionen" },
+  'lessons-title': { mike: "Tap a card to open it", natasha: "Tippe auf eine Karte" },
+  'lessons-desc': {
+    mike: "Every lesson is a full hour: a goal, exact steps, real commands to type, a checkpoint, and what to do if it breaks.",
+    natasha: "Jede Lektion dauert eine volle Stunde: ein Ziel, genaue Schritte, echte Befehle zum Eintippen, ein Checkpunkt — und was zu tun ist, wenn etwas schiefgeht. (Die Lektionen selbst bleiben auf Englisch — sie sind für Mikes Coding-Abenteuer.)",
+  },
+  'play-tag': { mike: "Play", natasha: "Spielen" },
+  'play-title': { mike: "The Iggles Card Vault", natasha: "Das Iggles-Kartenarchiv" },
+  'play-desc': {
+    mike: "This is the finished shape of the Hour 4 project — a live deck of Eagles legends and modern-era stars. Search it, filter it, or hit shuffle. Tiers are just fun collector flavor, not real appraisals.",
+    natasha: "Das ist die fertige Form des Hour-4-Projekts — ein lebendiges Kartenarchiv mit Eagles-Legenden und aktuellen Stars. Suchen, filtern, oder einfach mischen. Die Stufen sind nur zum Spaß, keine echte Bewertung.",
+  },
+  'cheat-tag': { mike: "Reference", natasha: "Referenz" },
+  'cheat-title': { mike: "The Cheat Sheet", natasha: "Der Spickzettel" },
+  'cheat-desc': {
+    mike: "Keep this open in a second tab during Hours 1-5.",
+    natasha: "Halt das in einem zweiten Tab offen — für wenn Mike mal wieder feststeckt.",
+  },
+  'footer-1': {
+    mike: 'Claude Code Academy &middot; a one-time gift, not a subscription &middot; source on <a href="https://github.com/fivetran-jasonchletsos/mike-claude-code-academy" target="_blank" rel="noopener">GitHub</a>',
+    natasha: 'Claude Code Academy &middot; ein einmaliges Geschenk, kein Abo &middot; Quelltext auf <a href="https://github.com/fivetran-jasonchletsos/mike-claude-code-academy" target="_blank" rel="noopener">GitHub</a>',
+  },
+  'footer-2': {
+    mike: "Built with Claude Code, for someone learning Claude Code. Mit ein bisschen Deutsch, für zuhause.",
+    natasha: "Gebaut mit Claude Code — mit ganz viel Ostalgie, für Natasha.",
+  },
+};
+
+function applyPersona(persona) {
+  document.documentElement.classList.toggle('theme-natasha', persona === 'natasha');
+  document.querySelectorAll('[data-persona]').forEach(el => {
+    const entry = PERSONA_TEXT[el.dataset.persona];
+    if (entry) el.innerHTML = entry[persona];
+  });
+  document.querySelectorAll('[data-persona-btn]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.personaBtn === persona);
+  });
+  currentLang = persona === 'natasha' ? 'de' : 'en';
+  localStorage.setItem('iggles-lang', currentLang);
+  applyLangText();
+}
+
+document.querySelectorAll('[data-persona-btn]').forEach(btn => {
+  btn.addEventListener('click', () => applyPersona(btn.dataset.personaBtn));
+});
+
 // ---------- Platform tabs (iOS / Windows toggle) ----------
 document.querySelectorAll('[data-platform-tabs]').forEach(group => {
   const buttons = group.querySelectorAll('.platform-tab');

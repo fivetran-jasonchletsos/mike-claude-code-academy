@@ -16,38 +16,43 @@
 <nav class="nav">
   <a class="nav-brand" href="#top">
     <span class="football" aria-hidden="true"></span>
+    <span class="ampelmann" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="22" r="14" fill="currentColor"/><rect x="34" y="9" width="32" height="7" rx="3" fill="currentColor"/><path d="M50 36 L50 68 M50 40 L22 40 M50 40 L78 40 M50 66 L28 95 M50 66 L72 95" stroke="currentColor" stroke-width="9" stroke-linecap="round" fill="none"/></svg></span>
     Claude Code Academy
   </a>
   <div class="nav-links">
-    <a href="#roadmap">Roadmap</a>
-    <a href="#lessons">Lessons</a>
-    <a href="#bonus">Bonus</a>
-    <a href="#play">Play</a>
-    <a href="#cheatsheet">Cheat Sheet</a>
+    <a href="#roadmap" data-persona="nav-roadmap">Roadmap</a>
+    <a href="#lessons" data-persona="nav-lessons">Lessons</a>
+    <a href="#bonus" data-persona="nav-bonus">Bonus</a>
+    <a href="#play" data-persona="nav-play">Play</a>
+    <a href="#cheatsheet" data-persona="nav-cheatsheet">Cheat Sheet</a>
+  </div>
+  <div class="persona-toggle">
+    <button class="chip active" data-persona-btn="mike" type="button">Mike</button>
+    <button class="chip" data-persona-btn="natasha" type="button">Natasha</button>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  <div class="hero-eyebrow">Five one-hour lessons &middot; two bonus drives &middot; zero experience required</div>
-  <h1>Fly, Code, Fly</h1>
-  <p class="sub">
+  <div class="hero-eyebrow" data-persona="hero-eyebrow">Five one-hour lessons &middot; two bonus drives &middot; zero experience required</div>
+  <h1 data-persona="hero-h1">Fly, Code, Fly</h1>
+  <p class="sub" data-persona="hero-sub">
     You used to hand-code your MySpace page — glitter text, a busted marquee tag, the whole Top 8.
     That instinct still counts. This is a hands-on, hour-by-hour crash course built for one
     student — Eagles die-hard, card collector, Windows laptop and an iPhone always within reach —
     to learn Claude Code from scratch, build a real tool, and get your card collection selling on eBay.
   </p>
-  <p class="hero-credit">Built by Jason &amp; Claude, for Mike (auf Deutsch: willkommen, for the German side of the house too)</p>
+  <p class="hero-credit" data-persona="hero-credit">Built by Jason &amp; Claude, for Mike (auf Deutsch: willkommen, for the German side of the house too)</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="#lessons">Start Hour 1</a>
-    <a class="btn btn-ghost" href="#play">Play the Card Vault</a>
+    <a class="btn btn-primary" href="#lessons" data-persona="cta-lessons">Start Hour 1</a>
+    <a class="btn btn-ghost" href="#play" data-persona="cta-play">Play the Card Vault</a>
   </div>
 </header>
 
 <section id="roadmap">
   <div class="section-head reveal">
-    <div class="section-tag">The Path</div>
-    <h2 class="section-title">Five hours, two bonus drives</h2>
-    <p class="section-desc">Each hour builds on the last. Do them in order, in one sitting or spread across a week — there's no clock but your own.</p>
+    <div class="section-tag" data-persona="roadmap-tag">The Path</div>
+    <h2 class="section-title" data-persona="roadmap-title">Five hours, two bonus drives</h2>
+    <p class="section-desc" data-persona="roadmap-desc">Each hour builds on the last. Do them in order, in one sitting or spread across a week — there's no clock but your own.</p>
   </div>
   <div class="roadmap reveal">
     <div class="road-step"><div class="num">HR 1</div><div class="label">Training Camp</div></div>
@@ -62,9 +67,9 @@
 
 <section id="lessons">
   <div class="section-head reveal">
-    <div class="section-tag">The Lessons</div>
-    <h2 class="section-title">Tap a card to open it</h2>
-    <p class="section-desc">Every lesson is a full hour: a goal, exact steps, real commands to type, a checkpoint, and what to do if it breaks.</p>
+    <div class="section-tag" data-persona="lessons-tag">The Lessons</div>
+    <h2 class="section-title" data-persona="lessons-title">Tap a card to open it</h2>
+    <p class="section-desc" data-persona="lessons-desc">Every lesson is a full hour: a goal, exact steps, real commands to type, a checkpoint, and what to do if it breaks.</p>
   </div>
 
   <!-- LESSON 1 -->
@@ -455,9 +460,9 @@ search word and print any matching players plus their blurb. Add a
 
 <section id="play">
   <div class="section-head reveal">
-    <div class="section-tag">Play</div>
-    <h2 class="section-title">The Iggles Card Vault</h2>
-    <p class="section-desc">This is the finished shape of the Hour 4 project &mdash; a live deck of Eagles legends and modern-era stars. Search it, filter it, or hit shuffle. Tiers are just fun collector flavor, not real appraisals.</p>
+    <div class="section-tag" data-persona="play-tag">Play</div>
+    <h2 class="section-title" data-persona="play-title">The Iggles Card Vault</h2>
+    <p class="section-desc" data-persona="play-desc">This is the finished shape of the Hour 4 project &mdash; a live deck of Eagles legends and modern-era stars. Search it, filter it, or hit shuffle. Tiers are just fun collector flavor, not real appraisals.</p>
   </div>
   <div class="finder-controls reveal">
     <div class="finder-controls-main">
@@ -478,9 +483,9 @@ search word and print any matching players plus their blurb. Add a
 
 <section id="cheatsheet">
   <div class="section-head reveal">
-    <div class="section-tag">Reference</div>
-    <h2 class="section-title">The Cheat Sheet</h2>
-    <p class="section-desc">Keep this open in a second tab during Hours 1-5.</p>
+    <div class="section-tag" data-persona="cheat-tag">Reference</div>
+    <h2 class="section-title" data-persona="cheat-title">The Cheat Sheet</h2>
+    <p class="section-desc" data-persona="cheat-desc">Keep this open in a second tab during Hours 1-5.</p>
   </div>
   <div class="cheat-grid reveal">
     <div class="cheat-card">
@@ -535,8 +540,8 @@ search word and print any matching players plus their blurb. Add a
 </section>
 
 <footer>
-  <p>Claude Code Academy &middot; a one-time gift, not a subscription &middot; source on <a href="https://github.com/fivetran-jasonchletsos/mike-claude-code-academy" target="_blank" rel="noopener">GitHub</a></p>
-  <p>Built with Claude Code, for someone learning Claude Code. Mit ein bisschen Deutsch, für zuhause.</p>
+  <p data-persona="footer-1">Claude Code Academy &middot; a one-time gift, not a subscription &middot; source on <a href="https://github.com/fivetran-jasonchletsos/mike-claude-code-academy" target="_blank" rel="noopener">GitHub</a></p>
+  <p data-persona="footer-2">Built with Claude Code, for someone learning Claude Code. Mit ein bisschen Deutsch, für zuhause.</p>
 </footer>
 
 <script src="data.js"></script>
