@@ -39,7 +39,7 @@ const PERSONA_TEXT = {
   'hero-sub': {
     mike: `You used to hand-code your MySpace page — glitter text, a busted marquee tag, the whole Top 8.
     That instinct still counts. This is a hands-on, hour-by-hour crash course built for one
-    student — Eagles die-hard, card collector, Windows laptop and an iPhone always within reach —
+    student — Eagles die-hard, card collector, Windows and Mac laptop always within reach —
     to learn Claude Code from scratch, build a real tool, and get your card collection selling on eBay.`,
     natasha: `Ein Gruß auf Deutsch, mit einem Augenzwinkern zur Ostalgie — Ampelmännchen, Trabi-Charme
     und eine Prise DDR-Nostalgie, für Natasha. Nebenan, auf Englisch, lernt Mike gerade das

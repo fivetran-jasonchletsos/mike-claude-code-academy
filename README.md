@@ -1,7 +1,7 @@
 # Claude Code Academy — built for Mike
 
 A hands-on, hour-by-hour crash course built for Mike — Philadelphia Eagles die-hard,
-trading-card collector, Windows laptop plus an iPhone always within reach — to learn
+trading-card collector, Windows and Mac laptop always within reach — to learn
 Claude Code from scratch, build an "Iggles Card Vault Finder" over Eagles legends and
 modern-era stars, add a German-language toggle for his wife, and list his card
 collection on eBay.
