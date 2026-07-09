@@ -254,3 +254,55 @@ langButtons.forEach(btn => {
 
 applyLangText();
 applyFilters();
+
+// ---------- Checkpoint progress + easter-egg clues ----------
+(function () {
+  var STORAGE_KEY = 'academyProgress';
+  var progress = { boxes: {}, clues: {} };
+  try {
+    var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    if (saved && typeof saved === 'object') {
+      progress.boxes = saved.boxes || {};
+      progress.clues = saved.clues || {};
+    }
+  } catch (e) { /* localStorage unavailable or corrupt -- start fresh */ }
+
+  function save() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); } catch (e) { /* ignore */ }
+  }
+
+  function revealClue(block, instant) {
+    block.hidden = false;
+    if (!instant) block.classList.add('clue-reveal');
+  }
+
+  document.querySelectorAll('[data-lesson]').forEach(function (lesson, lessonIdx) {
+    var checkpoints = lesson.querySelectorAll('.checkpoint');
+    var clueBlock = lesson.querySelector('.clue-block');
+
+    function lessonComplete() {
+      return Array.prototype.some.call(checkpoints, function (cp) {
+        var boxes = cp.querySelectorAll('input[type="checkbox"]');
+        return boxes.length > 0 && Array.prototype.every.call(boxes, function (b) { return b.checked; });
+      });
+    }
+
+    checkpoints.forEach(function (cp, cpIdx) {
+      cp.querySelectorAll('input[type="checkbox"]').forEach(function (box, boxIdx) {
+        var key = lessonIdx + '-' + cpIdx + '-' + boxIdx;
+        if (progress.boxes[key]) box.checked = true;
+        box.addEventListener('change', function () {
+          progress.boxes[key] = box.checked;
+          save();
+          if (clueBlock && !progress.clues[lessonIdx] && lessonComplete()) {
+            progress.clues[lessonIdx] = true;
+            save();
+            revealClue(clueBlock);
+          }
+        });
+      });
+    });
+
+    if (clueBlock && progress.clues[lessonIdx]) revealClue(clueBlock, true);
+  });
+})();

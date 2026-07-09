@@ -5,8 +5,10 @@
  * Claude Code Academy site. Triggered by the Konami code. Homage to the
  * classic pseudo-3D raycasting genre's MECHANICS only -- everything here
  * (theme, maze, sprites, palette) is original: you're a debugger sweeping
- * glowing "server corridors," squashing loose Glitches (little pixel-bug
- * blobs) before they crash the build.
+ * glowing "server corridors," dodging a swarm of Johns -- big, muscley
+ * guys who wander the halls each hauling a fistful of crystals in one hand
+ * and a tray of coffee cups in the other, somehow never spilling either.
+ * (Inside joke. Don't overthink it.)
  *
  * Zero globals: everything lives inside this IIFE.
  */
@@ -56,7 +58,7 @@
   var MAZE_H = MAZE.length;
 
   // Enemy spawn cells, spread across the maze via farthest-point sampling
-  // so Glitches aren't clumped in one corner. All confirmed open (0) cells,
+  // so Johns aren't clumped in one corner. All confirmed open (0) cells,
   // generated and BFS-verified against this exact maze (see report).
   var ENEMY_SPAWNS = [
     [19, 19], [5, 1], [1, 19], [19, 4],
@@ -83,7 +85,7 @@
   var ENEMY_SPEED = 1.05;     // tiles / second
   var ENEMY_DETECT_RADIUS = 6.5;
   var ENEMY_CONTACT_RADIUS = 0.55;
-  var ENEMY_DPS = 26;         // damage per second while a Glitch is in contact
+  var ENEMY_DPS = 26;         // damage per second while a John is in contact
   var FIRE_COOLDOWN = 0.35;   // seconds
   var HITSCAN_HALF_ANGLE = 3.5 * Math.PI / 180;
   var HITSCAN_RANGE = 14;
@@ -329,8 +331,14 @@
     floor: [10, 22, 18],
     wallA: [0, 76, 84],    // brand midnight green -- vertical (x-side) hits
     wallB: [0, 168, 107],  // pop kelly green -- horizontal (y-side) hits
-    bugBody: [255, 90, 60],
-    bugAccent: [255, 200, 60]
+    johnSkin: [224, 172, 128],
+    johnShirt: [60, 70, 130],
+    johnShirtShade: [42, 50, 96],
+    crystal: [178, 102, 255],
+    crystalShade: [122, 58, 196],
+    tray: [200, 200, 208],
+    cup: [245, 245, 240],
+    coffee: [90, 55, 30]
   };
 
   function shadeStyle(rgb, shade) {
@@ -384,52 +392,114 @@
       visible.push({ screenX: screenX, dist: corrected2 });
     }
     visible.sort(function (a, b) { return b.dist - a.dist; });
-    for (var v = 0; v < visible.length; v++) drawBug(visible[v].screenX, visible[v].dist);
+    for (var v = 0; v < visible.length; v++) drawJohn(visible[v].screenX, visible[v].dist);
 
     drawWeapon();
     drawCrosshair();
     drawMinimap();
   }
 
-  function drawBug(screenX, dist) {
+  // A big, muscley guy named John, forever wandering the corridors with a
+  // fistful of crystals in one hand and a tray of coffee cups in the other.
+  function drawJohn(screenX, dist) {
     var size = clamp(PROJ_DIST / dist * 0.85, 4, VIEW_H * 1.6);
     var groundY = VIEW_H / 2 + (PROJ_DIST / dist) * 0.10;
-    var bodyW = size * 0.62;
-    var bodyH = size * 0.5;
+    var w = size * 0.62;
+    var h = size * 0.95;
 
     ctx.save();
-    ctx.translate(screenX, groundY - bodyH * 0.5);
+    ctx.translate(screenX, groundY - h * 0.5);
 
     // legs
-    ctx.strokeStyle = shadeStyle(COLORS.bugBody, 0.6);
-    ctx.lineWidth = Math.max(1, size * 0.04);
-    for (var s = -1; s <= 1; s += 2) {
+    ctx.fillStyle = shadeStyle(COLORS.johnShirtShade, 1);
+    ctx.fillRect(-w * 0.28, h * 0.18, w * 0.22, h * 0.32);
+    ctx.fillRect(w * 0.06, h * 0.18, w * 0.22, h * 0.32);
+
+    // torso -- broad shoulders tapering to the waist
+    ctx.fillStyle = shadeStyle(COLORS.johnShirt, 1);
+    ctx.beginPath();
+    ctx.moveTo(-w * 0.5, -h * 0.05);
+    ctx.lineTo(w * 0.5, -h * 0.05);
+    ctx.lineTo(w * 0.3, h * 0.2);
+    ctx.lineTo(-w * 0.3, h * 0.2);
+    ctx.closePath();
+    ctx.fill();
+
+    // biceps
+    ctx.fillStyle = shadeStyle(COLORS.johnSkin, 0.95);
+    ctx.beginPath();
+    ctx.ellipse(-w * 0.56, -h * 0.02, w * 0.16, w * 0.2, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(w * 0.56, -h * 0.02, w * 0.16, w * 0.2, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // head
+    ctx.fillStyle = shadeStyle(COLORS.johnSkin, 1);
+    ctx.beginPath();
+    ctx.arc(0, -h * 0.32, w * 0.26, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#1a1a1a';
+    var eyeR = Math.max(1, size * 0.035);
+    ctx.beginPath();
+    ctx.arc(-w * 0.09, -h * 0.33, eyeR, 0, Math.PI * 2);
+    ctx.arc(w * 0.09, -h * 0.33, eyeR, 0, Math.PI * 2);
+    ctx.fill();
+
+    drawCrystalCluster(-w * 0.62, h * 0.05, w * 0.34);
+    drawCoffeeTray(w * 0.5, h * 0.08, w * 0.55);
+
+    ctx.restore();
+  }
+
+  function drawCrystalCluster(cx, cy, scale) {
+    var shards = [
+      { dx: -0.3, dy: 0.1, s: 0.55, rot: -0.3, shade: COLORS.crystal },
+      { dx: 0.1, dy: 0.15, s: 0.7, rot: 0.15, shade: COLORS.crystalShade },
+      { dx: -0.05, dy: -0.15, s: 0.5, rot: 0.4, shade: COLORS.crystal }
+    ];
+    for (var i = 0; i < shards.length; i++) {
+      var sh = shards[i];
+      var r = scale * sh.s * 0.5;
+      ctx.save();
+      ctx.translate(cx + sh.dx * scale, cy + sh.dy * scale);
+      ctx.rotate(sh.rot);
       ctx.beginPath();
-      ctx.moveTo(s * bodyW * 0.3, -bodyH * 0.1);
-      ctx.lineTo(s * bodyW * 0.75, -bodyH * 0.45);
-      ctx.moveTo(s * bodyW * 0.35, bodyH * 0.2);
-      ctx.lineTo(s * bodyW * 0.8, bodyH * 0.5);
-      ctx.stroke();
+      ctx.moveTo(0, -r);
+      ctx.lineTo(r * 0.55, -r * 0.1);
+      ctx.lineTo(r * 0.35, r);
+      ctx.lineTo(-r * 0.35, r);
+      ctx.lineTo(-r * 0.55, -r * 0.1);
+      ctx.closePath();
+      ctx.fillStyle = shadeStyle(sh.shade, 1);
+      ctx.fill();
+      ctx.restore();
     }
+  }
 
-    // body
-    ctx.fillStyle = shadeStyle(COLORS.bugBody, 1);
-    ctx.beginPath();
-    ctx.ellipse(0, 0, bodyW * 0.5, bodyH * 0.5, 0, 0, Math.PI * 2);
-    ctx.fill();
+  function drawCoffeeTray(cx, cy, scale) {
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.fillStyle = shadeStyle(COLORS.tray, 1);
+    ctx.fillRect(-scale * 0.5, -scale * 0.06, scale, scale * 0.14);
 
-    // glitch accent stripe
-    ctx.fillStyle = shadeStyle(COLORS.bugAccent, 1);
-    ctx.fillRect(-bodyW * 0.5, -bodyH * 0.08, bodyW, bodyH * 0.16);
-
-    // eyes
-    ctx.fillStyle = '#111';
-    var eyeR = Math.max(1, size * 0.05);
-    ctx.beginPath();
-    ctx.arc(-bodyW * 0.18, -bodyH * 0.15, eyeR, 0, Math.PI * 2);
-    ctx.arc(bodyW * 0.18, -bodyH * 0.15, eyeR, 0, Math.PI * 2);
-    ctx.fill();
-
+    var cupW = scale * 0.26;
+    var cupH = scale * 0.32;
+    var xs = [-scale * 0.32, 0, scale * 0.32];
+    for (var i = 0; i < xs.length; i++) {
+      ctx.fillStyle = shadeStyle(COLORS.cup, 1);
+      ctx.beginPath();
+      ctx.moveTo(xs[i] - cupW * 0.4, -scale * 0.06);
+      ctx.lineTo(xs[i] + cupW * 0.4, -scale * 0.06);
+      ctx.lineTo(xs[i] + cupW * 0.28, -scale * 0.06 - cupH);
+      ctx.lineTo(xs[i] - cupW * 0.28, -scale * 0.06 - cupH);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = shadeStyle(COLORS.coffee, 1);
+      ctx.beginPath();
+      ctx.ellipse(xs[i], -scale * 0.06 - cupH, cupW * 0.26, cupH * 0.08, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
     ctx.restore();
   }
 
@@ -554,13 +624,13 @@
     // Score
     ctx.fillStyle = '#eef4f2';
     ctx.font = '14px monospace';
-    ctx.fillText('BUGS SQUASHED: ' + defeatedCount + ' / ' + enemies.length, 260, y0 + 32);
+    ctx.fillText('JOHNS STOPPED: ' + defeatedCount + ' / ' + enemies.length, 260, y0 + 32);
     ctx.font = '11px monospace';
     ctx.fillStyle = '#b6c6c1';
     ctx.fillText('Arrows/WASD move + turn - Space zaps - Esc exits', 260, y0 + 54);
 
     if (gameState === 'won') {
-      overlayBanner('BUILD CLEAN -- ALL BUGS SQUASHED', '#00a86b');
+      overlayBanner('BUILD CLEAN -- ALL JOHNS CLEARED', '#00a86b');
     } else if (gameState === 'lost') {
       overlayBanner('SYSTEM CRASHED', '#c1272d');
     }
